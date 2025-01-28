@@ -1,5 +1,13 @@
-// import Image from "next/image";
+import { Categories, Container, SortPopup, Title } from "@/components/shared";
 
 export default function Home() {
-  return <h1>Hello</h1>;
+  return (
+    <section className="pt-[40px]">
+      <Container>
+        <Title text={"Все пиццы"} />
+        <Categories />
+        <SortPopup />
+      </Container>
+    </section>
+  );
 }

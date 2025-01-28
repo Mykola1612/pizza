@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="bg-[#f6f6f6] border-b-[1px] ">
+    <header className="border-b-[1px] ">
       <Container className="py-[42px] flex ">
         <div className="flex gap-[15px] items-center">
           <Link href="/">

@@ -1,0 +1,17 @@
+{
+  "Make TypeScript React Function Component": {
+    "scope": "typescriptreact",
+    "prefix": "tsrfcm",
+    "body": [
+      "import React from 'react';",
+      "",
+      "interface NameProps {}",
+      "",
+      "export const ${1:${TM_FILENAME_BASE/([a-z]*)-*([a-z]*)/${1:/capitalize}${2:/capitalize}/g}: React.FC<NameProps> =()=>{",
+      "return <div>Hello</div>",
+      "}};",
+      "$2"
+    ],
+    "description": "Create a TypeScript React functional component"
+  }
+}
