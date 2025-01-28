@@ -5,12 +5,12 @@ import Link from "next/link";
 
 export const Header = () => {
   return (
-    <header className="bg-color-[#f6f6f6] border-b-[1px] ">
+    <header className="bg-[#f6f6f6] border-b-[1px] ">
       <Container className="py-[42px] flex ">
         <div className="flex gap-[15px] items-center">
           <Link href="/">
             <Image
-              src="/assets/logo.png"
+              src="/pizza/assets/logo.png"
               alt="Logo pizza"
               width={35}
               height={35}
@@ -29,7 +29,7 @@ export const Header = () => {
         <div className=" flex gap-x-[16px] content-end ml-auto">
           <button className="group flex gap-[8px] items-center text-[#fe5f00] font-semibold  border-[1px] border-solid rounded-[15px] border-[#fe5f00] py-[14px] px-[22px] transition duration-[300ms] hover:border-[#fec300] hover:text-[#fec300]">
             <svg className="w-[13px] h-[15px] stroke-[#fe5f00] transition duration-[300ms] group-hover:stroke-[#fec300]">
-              <use href="/assets/sprite.svg#icon-Human" />
+              <use href="/pizza/assets/sprite.svg#icon-Human" />
             </svg>
             Войти
           </button>
@@ -39,13 +39,13 @@ export const Header = () => {
 
             <div className="flex gap-x-2 items-center transition ease-[cubic-bezier(0.4,0,0.2,1)]  duration-[300ms] group-hover:opacity-0 ">
               <svg width="16" height="16" className="stroke-[#fff] ">
-                <use href="/assets/sprite.svg#icon-Shopping-cart" />
+                <use href="/pizza/assets/sprite.svg#icon-Shopping-cart" />
               </svg>
               <b>3</b>
             </div>
             <div className="absolute transition ease-[cubic-bezier(0.4,0,0.2,1)] -translate-x-[20px]  right-0 mr-[20px] duration-[300ms]  opacity-0 group-hover:opacity-100  group-hover:translate-x-0   ">
               <svg className="fill-white w-8 h-4">
-                <use href="/assets/sprite.svg#icon-arrow" />
+                <use href="/pizza/assets/sprite.svg#icon-arrow" />
               </svg>
             </div>
           </button>
