@@ -3,3 +3,4 @@ export { Title } from "./title";
 export { Container } from "./container";
 export { Categories } from "./categories";
 export { SortPopup } from "./sort-popup";
+export { Filtration } from "./filtration";
