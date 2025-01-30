@@ -31,24 +31,24 @@ export const Filtration = () => {
   const [maxRangeValue, setMaxRangeValue] = useState(1000);
 
   const handleMinInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value > 1000) {
+    if (Number(e.target.value) > 1000) {
       setMinRangeValue(999);
       return;
     }
     let value = e.target.value.replace(/^0+/, "");
     value = value === "" ? "0" : value;
-    setMinRangeValue(value);
+    setMinRangeValue(Number(value));
   };
 
   const handleMaxInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.value > 1000) {
+    if (Number(e.target.value) > 1000) {
       setMaxRangeValue(1000);
       return;
     }
 
     let value = e.target.value.replace(/^0+/, "");
     value = value === "" ? "0" : value;
-    setMaxRangeValue(value);
+    setMaxRangeValue(Number(value));
   };
 
   const handleRangeChange = (values: number[]) => {
