@@ -13,7 +13,7 @@ const activeIndex = 0;
 
 export const Categories = () => {
   return (
-    <div className="inline-flex gap-[5px] ">
+    <div className="inline-flex gap-[5px] bg-[#fafafa] rounded-[15px] py-[6px] px-[5px]">
       {categoriesArray.map((categorie, index) => (
         <button
           key={index}

@@ -5,9 +5,9 @@
     "body": [
       "import React from 'react';",
       "",
-      "interface NameProps {}",
+      "interface Props {}",
       "",
-      "export const ${1:${TM_FILENAME_BASE/([a-z]*)-*([a-z]*)/${1:/capitalize}${2:/capitalize}/g}: React.FC<NameProps> =()=>{",
+      "export const ${1:${TM_FILENAME_BASE/([a-z]*)-*([a-z]*)/${1:/capitalize}${2:/capitalize}/g}: React.FC<Props> =()=>{",
       "return <div>Hello</div>",
       "}};",
       "$2"
