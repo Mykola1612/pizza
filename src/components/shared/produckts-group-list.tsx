@@ -5,7 +5,7 @@ import { useIntersection } from "react-use";
 
 interface Props {
   title: string;
-  items: [];
+  items: any[];
   categoryId: number;
 }
 
