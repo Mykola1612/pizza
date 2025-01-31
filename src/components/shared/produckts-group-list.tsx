@@ -3,9 +3,16 @@ import React, { useEffect, useRef } from "react";
 import { ProductCard } from "./product-card";
 import { useIntersection } from "react-use";
 
+// Определяем интерфейсы
+interface Item {
+  id: number;
+  name: string;
+  imageUrl: string;
+  items: { price: number }[]; // массив с ценами
+}
 interface Props {
   title: string;
-  items: any[];
+  items: Item[];
   categoryId: number;
 }
 
