@@ -8,3 +8,5 @@ export { TopBar } from "./top-bar";
 export { FilterCheckbox } from "./filter-checkbox";
 export { RangeSlider } from "./range-slider";
 export { CheckboxFiltersGroup } from "./checkbox-filters-group";
+export { ProductCard } from "./product-card";
+export { ProducktsGroupList } from "./produckts-group-list";
