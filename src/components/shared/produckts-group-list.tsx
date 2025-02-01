@@ -3,7 +3,6 @@ import React, { useEffect, useRef } from "react";
 import { ProductCard } from "./product-card";
 import { useIntersection } from "react-use";
 
-// Определяем интерфейсы
 interface Item {
   id: number;
   name: string;
@@ -21,10 +20,14 @@ export const ProducktsGroupList: React.FC<Props> = ({
   items,
   categoryId,
 }) => {
-  const intersectionRef = useRef(null);
-  const intersection = useIntersection(intersectionRef, {
-    threshold: 0.2,
-  });
+  const intersectionRef = useRef<HTMLDivElement>(null);
+
+  const intersection = useIntersection(
+    intersectionRef as React.RefObject<HTMLElement>,
+    {
+      threshold: 0.2,
+    }
+  );
 
   useEffect(() => {
     if (intersection?.isIntersecting) {

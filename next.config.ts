@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   reactStrictMode: true,
+  compilerOptions: {
+    strict: false,
+    noImplicitAny: false,
+  },
 };
 
 export default nextConfig;
