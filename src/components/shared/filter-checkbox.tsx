@@ -23,11 +23,17 @@ export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
       <div className="relative w-[24px] h-[24px]">
         <input
           type="checkbox"
-          className=" peer sr-only"
+          className=" peer sr-only "
           value={value}
           onChange={handleinputChange}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              e.currentTarget.click();
+            }
+          }}
         />
-        <div className="w-[24px] h-[24px] bg-[#f1f1f1] rounded-[8px]   peer-checked:bg-primary"></div>
+        <div className="w-[24px] h-[24px] bg-[#f1f1f1] rounded-[8px] peer-checked:bg-primary"></div>
         <svg className="w-[11px] h-[9px] absolute top-[50%] left-[50%] -translate-x-[50%] translate-y-[-50%] opacity-0 peer-checked:opacity-100">
           <use href="/pizza/assets/sprite.svg#icon-Check-mark" />
         </svg>

@@ -2,6 +2,7 @@
 import React, { useEffect, useRef } from "react";
 import { ProductCard } from "./product-card";
 import { useIntersection } from "react-use";
+import { useCategoryStore } from "@/store/category";
 
 interface Item {
   id: number;
@@ -20,8 +21,8 @@ export const ProducktsGroupList: React.FC<Props> = ({
   items,
   categoryId,
 }) => {
+  const setCateoryActiveId = useCategoryStore((state) => state.setActiveId);
   const intersectionRef = useRef<HTMLDivElement>(null);
-
   const intersection = useIntersection(
     intersectionRef as React.RefObject<HTMLElement>,
     {
@@ -31,9 +32,9 @@ export const ProducktsGroupList: React.FC<Props> = ({
 
   useEffect(() => {
     if (intersection?.isIntersecting) {
-      console.log(title, categoryId);
+      setCateoryActiveId(categoryId);
     }
-  }, [intersectionRef, intersection, categoryId, title]);
+  }, [intersection, categoryId]);
 
   return (
     <div id={title} ref={intersectionRef}>

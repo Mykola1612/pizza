@@ -20,7 +20,7 @@ export default function Home() {
           <Filtration />
           <div className="w-[960px]">
             <ProducktsGroupList
-              title="Кебаб"
+              title="Пиццы"
               categoryId={1}
               items={[
                 {
@@ -147,7 +147,7 @@ export default function Home() {
               ]}
             />
             <ProducktsGroupList
-              title="Пицца"
+              title="Комбо"
               categoryId={2}
               items={[
                 {
@@ -197,7 +197,7 @@ export default function Home() {
               ]}
             />
             <ProducktsGroupList
-              title="Суши"
+              title="Закуски"
               categoryId={3}
               items={[
                 {
