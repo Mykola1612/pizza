@@ -3,23 +3,23 @@ import { useCategoryStore } from "@/store/category";
 import React from "react";
 
 const categoriesArray = [
-  "Пиццы",
-  "Комбо",
-  "Закуски",
-  "Завтрак",
-  "Коктейли",
-  "Кофе",
-  "Напитки",
-  "Десерты",
+  { name: "Пиццы" },
+  { name: "Комбо" },
+  { name: "Закуски" },
+  { name: "Завтрак" },
+  { name: "Коктейли" },
+  { name: "Кофе" },
+  { name: "Напитки" },
+  { name: "Десерты" },
 ];
 
 export const Categories = () => {
   const categoryActiveId = useCategoryStore((state) => state.activeId);
   return (
     <div className="inline-flex gap-[5px] bg-[#fafafa] rounded-[15px] py-[6px] px-[5px]">
-      {categoriesArray.map((categorie, index) => (
+      {categoriesArray.map(({ name }, index) => (
         <a
-          href={`#${categorie}`}
+          href={`#${name}`}
           key={index}
           className={`rounded-[30px] py-[10px] px-[16px] font-bold min-w-[78px] text-center  transition duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)]  hover:text-primary focus:text-primary ${
             categoryActiveId === index + 1 && "bg-white  text-primary"
@@ -30,7 +30,7 @@ export const Categories = () => {
               : {}
           }
         >
-          {categorie}
+          {name}
         </a>
       ))}
     </div>

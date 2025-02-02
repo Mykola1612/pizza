@@ -14,6 +14,7 @@ fullName String
 email String @unique
 password String
 role UserRole @default(USER)
+verified DateTime 
 
 cart Cart?
 oder Order[]
@@ -32,7 +33,7 @@ model Category {
   products Product[]
 
   createAt DateTime @default(now())
-updateAt DateTime @updatedAt
+  updateAt DateTime @updatedAt
 }
 
 model Product {
@@ -43,8 +44,8 @@ model Product {
 category Category @relation(fields: [categoryId], references: [id])
 categoryId Int
 
-poductVariations PoductVariations[]
-ingredient Ingredient[]
+productVariations ProductVariations[]
+ingredients Ingredient[]
 
 createAt DateTime @default(now())
 updateAt DateTime @updatedAt
@@ -56,23 +57,23 @@ id Int @id @default(autoincrement())
 
 name String
 price Int
-imageUrl String
+imageURL String
 
-product Product[]
-items CardItem[]
+products Product[]
+items CartItem[]
 
 createAt DateTime @default(now())
 updateAt DateTime @updatedAt
 }
 
-model PoductVariations {
+model ProductVariations {
 id Int @id @default(autoincrement())
 
 price Int
 size Int?
 pizzaDoughType Int?
 
-items CardItem[]
+items CartItem[]
 
 product Product  @relation(fields: [productId], references: [id])
 productId Int
@@ -88,7 +89,7 @@ id Int @id @default(autoincrement())
 user User? @relation(fields: [userId], references: [id])
 userId Int @unique
 
-items CardItem[]
+items CartItem[]
 
 
 totalAmount Int @default(0)
@@ -100,15 +101,15 @@ updateAt DateTime @updatedAt
 }
 
 
-model CardItem {
+model CartItem {
 id Int @id @default(autoincrement())
 
 
-cart Cart @relation(fields: [cardId], references: [id])
-cardId Int
+cart Cart @relation(fields: [cartId], references: [id])
+cartId Int
 
-poductVariations PoductVariations  @relation(fields: [poductVariationsId], references: [id])
-poductVariationsId Int
+productVariations ProductVariations  @relation(fields: [productVariationsId], references: [id])
+productVariationsId Int
 
 
 
