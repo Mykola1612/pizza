@@ -2,10 +2,11 @@ import Image from "next/image";
 import { Container } from "./container";
 import React from "react";
 import Link from "next/link";
+import { SearchInput } from "./search-input";
 
 export const Header = () => {
   return (
-    <header className="border-b-[1px] ">
+    <header className="border-b-[1px]">
       <Container className="py-[42px] flex ">
         <div className="flex gap-[15px] items-center">
           <Link href="/">
@@ -18,14 +19,19 @@ export const Header = () => {
             />
           </Link>
           <div>
-            <h1 className="font-black text-[24px] tracking-[0.01em] uppercase">
+            <h2 className="font-black text-[24px] tracking-[0.01em] uppercase">
               Pizza
-            </h1>
+            </h2>
             <p className="font-normal text-[16px] text-[#7b7b7b]">
               смачніше вже точно нікуди
             </p>
           </div>
         </div>
+
+        <div className="mx-10 flex-1">
+          <SearchInput />
+        </div>
+
         <div className=" flex gap-x-[16px] content-end ml-auto">
           <button className="group flex gap-[8px] items-center text-[#fe5f00] font-semibold  border-[1px] border-solid rounded-[15px] border-[#fe5f00] py-[14px] px-[22px] transition duration-[300ms] hover:border-[#fec300] hover:text-[#fec300] focus:border-[#fec300] focus:text-[#fec300]">
             <svg className="w-[13px] h-[15px] stroke-[#fe5f00] transition duration-[300ms] group-hover:stroke-[#fec300]  group-focus:stroke-[#fec300]">
