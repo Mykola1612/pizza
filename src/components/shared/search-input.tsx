@@ -18,11 +18,28 @@ export const SearchInput = () => {
     });
   }, [searchQuery]);
 
+  const scrollnone = () => {
+    document.body.style.overflowY = "hidden";
+  };
+
+  const scrollauto = () => {
+    document.body.style.overflowY = "auto";
+  };
+  const handelProductClick = () => {
+    scrollauto();
+    setFocused(false);
+    setSearchQuery("");
+    setProducts([]);
+  };
+
   return (
     <>
       {focused && (
         <div
-          onClick={() => setFocused(false)}
+          onClick={() => {
+            setFocused(false);
+            scrollauto();
+          }}
           className="fixed z-30 top-0 left-0 bottom-0 right-0 bg-black/50"
         ></div>
       )}
@@ -30,8 +47,11 @@ export const SearchInput = () => {
         <input
           type="text"
           className="bg-[#f9f9f9] rounded-[15px] w-full h-[50px] outline-none pl-[48px]"
-          placeholder="Поиск пиццы..."
-          onFocus={() => setFocused(true)}
+          placeholder="Пошук страв..."
+          onFocus={() => {
+            setFocused(true);
+            scrollnone();
+          }}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
@@ -40,19 +60,19 @@ export const SearchInput = () => {
         </svg>
 
         <div
-          className={`w-full absolute bg-white rounded-[15px] py-2  shadow-md transition-all duration-200  z-30 ${
+          className={`w-full max-h-fit max-h-[70vh] overflow-auto  absolute bg-white rounded-[15px] py-2  shadow-md transition-all duration-200  z-30 ${
             focused
               ? "visible opacity-100 top-14"
               : " invisible opacity-0 top-16"
           }`}
         >
           {products.length === 0 ? (
-            <div className="px-3 py-2">You need write text</div>
+            <div className="px-3 py-2">Тобі потрібно ввести назву страви</div>
           ) : (
             <ul>
               {products.length > 0 &&
                 products.map((product) => (
-                  <li key={product.id}>
+                  <li key={product.id} onClick={handelProductClick}>
                     <Link
                       href={`/product/${product.id}`}
                       className="px-3 py-2 hover:bg-primary/10 cursor-pointer items-center gap-3 flex "

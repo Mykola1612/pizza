@@ -9,7 +9,10 @@ export const Header = () => {
     <header className="border-b-[1px]">
       <Container className="py-[42px] flex ">
         <div className="flex gap-[15px] items-center">
-          <Link href="/">
+          <Link
+            href="/"
+            className="flex gap-x-[15px] justify-center items-center"
+          >
             <Image
               src="/pizza/assets/logo.png"
               alt="Logo pizza"
@@ -17,15 +20,16 @@ export const Header = () => {
               height={35}
               className="h-[35px] w-[35px]"
             />
+
+            <div>
+              <h2 className="font-black text-[24px] tracking-[0.01em] uppercase">
+                Pizza
+              </h2>
+              <p className="font-normal text-[16px] text-[#7b7b7b]">
+                смачніше вже точно нікуди
+              </p>
+            </div>
           </Link>
-          <div>
-            <h2 className="font-black text-[24px] tracking-[0.01em] uppercase">
-              Pizza
-            </h2>
-            <p className="font-normal text-[16px] text-[#7b7b7b]">
-              смачніше вже точно нікуди
-            </p>
-          </div>
         </div>
 
         <div className="mx-10 flex-1">
@@ -37,7 +41,7 @@ export const Header = () => {
             <svg className="w-[13px] h-[15px] stroke-[#fe5f00] transition duration-[300ms] group-hover:stroke-[#fec300]  group-focus:stroke-[#fec300]">
               <use href="/pizza/assets/sprite.svg#icon-Human" />
             </svg>
-            Войти
+            Увійти
           </button>
           <button className="relative group flex gap-x-[13px] bg-[#fe5f00] rounded-[15px] text-white items-center px-[23px] py-[12px] transition duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-[#fec300] focus:bg-[#fec300]">
             <b>400 ₴</b>

@@ -2,22 +2,11 @@
 import { useCategoryStore } from "@/store/category";
 import React from "react";
 
-const categoriesArray = [
-  { name: "Пиццы" },
-  { name: "Комбо" },
-  { name: "Закуски" },
-  { name: "Завтрак" },
-  { name: "Коктейли" },
-  { name: "Кофе" },
-  { name: "Напитки" },
-  { name: "Десерты" },
-];
-
-export const Categories = () => {
+export const Categories = ({ categoriesItems }) => {
   const categoryActiveId = useCategoryStore((state) => state.activeId);
   return (
     <div className="inline-flex gap-[5px] bg-[#fafafa] rounded-[15px] py-[6px] px-[5px]">
-      {categoriesArray.map(({ name }, index) => (
+      {categoriesItems.map(({ name }, index) => (
         <a
           href={`#${name}`}
           key={index}

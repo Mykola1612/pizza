@@ -1,34 +1,13 @@
 "use client";
 import React, { useState } from "react";
 import { CheckboxFiltersGroup, RangeSlider, FilterCheckbox } from "./index";
-
-const itemsIngradients = [
-  { value: "mozzarella", text: "Моцарелла" },
-  { value: "garlic", text: "Чеснок" },
-  { value: "pickled-cucumbers", text: "Солённые огурчики" },
-  { value: "red-onion", text: "Красный лук" },
-  { value: "tomatoes", text: "Томаты" },
-  { value: "cheese-sauce", text: "Сырный соус" },
-  { value: "bacon", text: "Бекон" },
-  { value: "mushrooms", text: "Грибы" },
-  { value: "olive-oil", text: "Оливковое масло" },
-  { value: "pineapple", text: "Ананас" },
-  { value: "ham", text: "Ветчина" },
-  { value: "salami", text: "Салями" },
-  { value: "sweet-corn", text: "Кукуруза" },
-  { value: "pepperoni", text: "Пепперони" },
-  { value: "jalapenos", text: "Халапеньо" },
-  { value: "shrimp", text: "Креветки" },
-  { value: "avocado", text: "Авокадо" },
-  { value: "spinach", text: "Шпинат" },
-  { value: "arugula", text: "Руккола" },
-  { value: "feta", text: "Фета" },
-  { value: "cheddar", text: "Чеддер" },
-];
+import { useFiltersIngredients } from "../../../hooks/useFiltersIngredients";
 
 export const Filtration = () => {
+  const { ingredients } = useFiltersIngredients();
   const [minRangeValue, setMinRangeValue] = useState(0);
   const [maxRangeValue, setMaxRangeValue] = useState(1000);
+  const [checkStatus, setCheckStatus] = useState<string[]>([]);
 
   const handleMinInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (Number(e.target.value) > 1000) {
@@ -63,8 +42,20 @@ export const Filtration = () => {
     <section className="w-[244px]">
       <h2 className="text-[22px] font-bold ">Фильтрация</h2>
       <div className="mt-[30px] flex flex-col gap-y-4">
-        <FilterCheckbox text="Можно собирать" value="1" />
-        <FilterCheckbox text="Новинки" value="2" />
+        <FilterCheckbox
+          text="Можно собирать"
+          value="1"
+          id="collectable"
+          checkStatusInput={checkStatus}
+          setCheckStatusInput={setCheckStatus}
+        />
+        <FilterCheckbox
+          text="Новинки"
+          value="2"
+          id="new"
+          checkStatusInput={checkStatus}
+          setCheckStatusInput={setCheckStatus}
+        />
       </div>
       <div className="mt-[42px]">
         <h3 className="text-[16px] font-bold">Цена от и до:</h3>
@@ -104,7 +95,12 @@ export const Filtration = () => {
           onChange={handleRangeChange}
         />
       </div>
-      <CheckboxFiltersGroup title="Ингредиенты:" items={itemsIngradients} />
+      <CheckboxFiltersGroup
+        title="Ингредиенты:"
+        items={ingredients}
+        checkStatusInput={checkStatus}
+        setCheckStatusInput={setCheckStatus}
+      />
 
       <div className="mt-[42px]">
         <h3 className="text-[16px] font-bold">Тип теста:</h3>

@@ -1,8 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import { FilterCheckbox, FilterCheckboxProps } from "./filter-checkbox";
+import { FilterCheckbox } from "./filter-checkbox";
 
-type Item = FilterCheckboxProps;
+interface Item {
+  id: string;
+  name: string;
+  value: string;
+  onCheckedChange?: (checked: boolean) => void;
+  checked?: boolean;
+}
 
 interface Props {
   title: string;
@@ -17,15 +23,16 @@ interface Props {
 export const CheckboxFiltersGroup: React.FC<Props> = ({
   title,
   items,
-
+  checkStatusInput,
+  setCheckStatusInput,
   limit = 6,
-  searchInputPlaceholder = "Поиск...",
+  searchInputPlaceholder = "Пошук...",
 }) => {
   const [showAll, setShowAll] = useState(false);
   const [searchValue, setSerachValue] = useState("");
 
   const itemsList = showAll
-    ? items.filter((item) => item.text.toLowerCase().includes(searchValue))
+    ? items.filter((item) => item.name.toLowerCase().includes(searchValue))
     : items.slice(0, limit);
 
   const handelShowButton = () => {
@@ -53,7 +60,14 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
       )}
       <ul className="flex flex-col gap-y-4 mt-4 max-h-96 scrollbar pr-2 overflow-auto">
         {itemsList.map((item, index) => (
-          <FilterCheckbox key={index} text={item.text} value={item.value} />
+          <FilterCheckbox
+            key={index}
+            text={item.name}
+            value={item.value}
+            id={item.id}
+            checkStatusInput={checkStatusInput}
+            setCheckStatusInput={setCheckStatusInput}
+          />
         ))}
       </ul>
       {itemsList.length === 0 ? (
@@ -63,7 +77,7 @@ export const CheckboxFiltersGroup: React.FC<Props> = ({
           onClick={handelShowButton}
           className="text-primary font-normal text-[16px] mt-5"
         >
-          {showAll ? "Скрыть" : "+ Показать всё"}
+          {showAll ? "Сховати" : "+ Показати все"}
         </button>
       )}
     </div>

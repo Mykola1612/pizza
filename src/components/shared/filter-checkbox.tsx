@@ -1,30 +1,43 @@
-import React from "react";
+"use client";
 
 export interface FilterCheckboxProps {
+  id?: string;
   text: string;
   value: string;
   onCheckedChange?: (checked: boolean) => void;
   checked?: boolean;
+  checkStatusInput: string[];
+  setCheckStatusInput: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
 export const FilterCheckbox: React.FC<FilterCheckboxProps> = ({
   text,
   value,
+  id,
+  checkStatusInput,
+  setCheckStatusInput,
 }) => {
+  console.log(checkStatusInput);
+
   const handleinputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
+    const id = e.target.id;
     const checked = e.target.checked;
-    const checkboxStatus = [value, checked];
-    console.log("checkboxStatus: ", checkboxStatus);
+    console.log([`${id} : ${checked}`]);
+
+    setCheckStatusInput((prevState) =>
+      checked ? [...prevState, id] : prevState.filter((item) => item !== id)
+    );
   };
+  console.log(checkStatusInput);
 
   return (
-    <label className="text-[16px] font-normal flex gap-x-[12px] transition duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)]  focus-within:text-primary  hover:text-primary">
+    <label className="text-[16px] font-normal flex gap-x-[12px] transition duration-[300ms] ease-[cubic-bezier(0.4,0,0.2,1)]  focus-within:text-primary  hover:text-primary cursor-pointer">
       <div className="relative w-[24px] h-[24px]">
         <input
           type="checkbox"
           className=" peer sr-only "
           value={value}
+          id={id}
           onChange={handleinputChange}
           onKeyDown={(e) => {
             if (e.key === "Enter") {
