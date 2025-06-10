@@ -14,3 +14,7 @@ export { SearchInput } from "./search-input";
 export { ImageProduct } from "./image-product";
 export { ProductVariants } from "./product-variants";
 export * from "./modals";
+export { Modal } from "./modal";
+export { ChooseProductForm } from "./choose-product-form";
+export { ChoosePizzaForm } from "./choose-pizza-form";
+export { Ingradients } from "./ingradients";

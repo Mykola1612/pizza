@@ -16,7 +16,11 @@ export default async function ProductPage({ params: { id } }) {
   return (
     <Container className="flex gap-x-10 pt-10">
       <div className=" rounded-[20px] bg-[#FFF7EE] w-[570px] h-[570px] flex justify-center items-center">
-        <ImageProduct size={size} product={product} />
+        <ImageProduct
+          size={size}
+          imageURL={product.imageURL}
+          name={product.name}
+        />
       </div>
 
       <div className="w-[630px]">
